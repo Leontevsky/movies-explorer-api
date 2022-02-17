@@ -1,11 +1,11 @@
-const validator = require("validator");
-const { celebrate, Joi } = require("celebrate");
-const ErrorBadRequest = require("../errors/BadRequest");
+const validator = require('validator');
+const { celebrate, Joi } = require('celebrate');
+const ErrorBadRequest = require('../errors/BadRequest');
 
 const validationUrl = (url) => {
   const checkUrl = validator.isURL(url);
   if (!checkUrl) {
-    throw new ErrorBadRequest("Неправильный Url");
+    throw new ErrorBadRequest('Неправильный Url');
   }
   return url;
 };

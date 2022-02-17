@@ -1,7 +1,7 @@
-const Movie = require("../models/movie");
-const ErrorNotFound = require("../errors/NotFound");
-const ErrorBadRequest = require("../errors/BadRequest");
-const ErrorForBidden = require("../errors/Forbidden");
+const Movie = require('../models/movie');
+const ErrorNotFound = require('../errors/NotFound');
+const ErrorBadRequest = require('../errors/BadRequest');
+const ErrorForBidden = require('../errors/Forbidden');
 
 // # удаляет сохранённый фильм по id
 // DELETE /movies/_id
@@ -43,8 +43,8 @@ const createMovies = (req, res, next) => {
   })
     .then((movie) => res.send(movie))
     .catch((err) => {
-      if (err.name === "ValidationError") {
-        next(new ErrorBadRequest("Отправленны некорректные данные"));
+      if (err.name === 'ValidationError') {
+        next(new ErrorBadRequest('Отправленны некорректные данные'));
       } else {
         next(err);
       }
@@ -62,7 +62,7 @@ const deleteMovies = (req, res, next) => {
   Movie.findById(CurrentMovie)
     .then((movie) => {
       if (!movie) {
-        throw new ErrorNotFound("Фильм не найден");
+        throw new ErrorNotFound('Фильм не найден');
       }
       return movie; // вернули функции а не пользователю
     })
@@ -76,12 +76,12 @@ const deleteMovies = (req, res, next) => {
           })
           .catch(next);
       } else {
-        throw new ErrorForBidden("Вы не являетесь владельцем, удалить нельзя");
+        throw new ErrorForBidden('Вы не являетесь владельцем, удалить нельзя');
       }
     })
     .catch((err) => {
-      if (err.name === "CastError") {
-        next(new ErrorBadRequest("Некорректный id фильма"));
+      if (err.name === 'CastError') {
+        next(new ErrorBadRequest('Некорректный id фильма'));
       } else {
         next(err);
       }

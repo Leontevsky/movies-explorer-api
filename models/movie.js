@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
@@ -37,7 +37,7 @@ const moviesSchema = new Schema({
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+    ref: 'user',
     required: true,
   },
   movieId: {
@@ -54,4 +54,4 @@ const moviesSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("movie", moviesSchema);
+module.exports = mongoose.model('movie', moviesSchema);
