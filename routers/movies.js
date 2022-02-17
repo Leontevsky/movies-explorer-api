@@ -13,6 +13,6 @@ const {
 const router = express.Router();
 router.get('/movies', getMovies);
 router.post('/movies', validationCreateMovie, createMovies);
-router.delete('/movies/_id', validationDeleteMovie, deleteMovies);
+router.delete('/movies/:id', validationDeleteMovie, deleteMovies);
 
 module.exports = router;

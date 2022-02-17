@@ -27,7 +27,7 @@ const moviesSchema = new Schema({
     type: String,
     required: true,
   },
-  trailer: {
+  trailerLink: {
     type: String,
     required: true,
   },
