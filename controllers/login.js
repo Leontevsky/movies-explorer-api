@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const ErrorForBidden = require('../errors/Forbidden');
+const ErrorBadAuth = require('../errors/BadAuth');
 
 const checkLogin = (req, res, next) => {
   const { email, password } = req.body;
@@ -9,13 +9,13 @@ const checkLogin = (req, res, next) => {
     .select('+password') // почитать +password
     .then((user) => {
       if (!user) {
-        throw new ErrorForBidden('Авторизация не прошла, email не найден');
+        throw new ErrorBadAuth('Авторизация не прошла, email не найден');
       }
       bcrypt
         .compare(password, user.password) // сравниваю пароль пользователя с бд и новый
         .then((passresult) => {
           if (!passresult) {
-            throw new ErrorForBidden(
+            throw new ErrorBadAuth(
               'Авторизация не прошла, неправильный пароль',
             );
           }
@@ -29,9 +29,9 @@ const checkLogin = (req, res, next) => {
           res.send({ token });
         })
         .catch((err) => {
-          if (err.statusCode === 401) {
+          if (err.statusCode === ErrorBadAuth) {
             next(
-              new ErrorForBidden(
+              new ErrorBadAuth(
                 'Авторизация не прошла, неправильная почта или пароль',
               ),
             );
@@ -40,7 +40,7 @@ const checkLogin = (req, res, next) => {
     })
     .catch(() => {
       next(
-        new ErrorForBidden(
+        new ErrorBadAuth(
           'Авторизация не прошла, неправильная почта или пароль',
         ),
       );

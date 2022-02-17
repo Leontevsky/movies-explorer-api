@@ -22,8 +22,7 @@ const createUser = (req, res, next) => {
     .catch((err) => {
       if (err.code === 11000) {
         next(new ErrorBadUnique('Такая почта уже зарегистрированна!')); // read about next
-      }
-      if (err.name === 'ValidationError') {
+      } else if (err.name === 'ValidationError') {
         next(new ErrorBadRequest('Введены некорректные данные'));
       } else {
         next(err);
@@ -43,8 +42,7 @@ const getCurrentUser = (req, res, next) => {
     })
     .catch((err) => {
       next(err);
-    })
-    .catch(next);
+    });
 };
 
 const updateUser = (req, res, next) => {
