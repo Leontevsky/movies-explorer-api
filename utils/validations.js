@@ -1,11 +1,11 @@
-const validator = require('validator');
-const { celebrate, Joi } = require('celebrate');
-const ErrorBadRequest = require('../errors/BadRequest');
+const validator = require("validator");
+const { celebrate, Joi } = require("celebrate");
+const ErrorBadRequest = require("../errors/BadRequest");
 
 const validationUrl = (url) => {
   const checkUrl = validator.isURL(url);
   if (!checkUrl) {
-    throw new ErrorBadRequest('Неправильный Url');
+    throw new ErrorBadRequest("Неправильный Url");
   }
   return url;
 };
@@ -40,7 +40,7 @@ const validationCreateMovie = celebrate({
     year: Joi.string().required(),
     description: Joi.string().required(),
     image: Joi.string().required().custom(validationUrl),
-    trailerLink: Joi.string().required().custom(validationUrl),
+    trailer: Joi.string().required().custom(validationUrl),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
     thumbnail: Joi.string().required().custom(validationUrl),
