@@ -1,6 +1,6 @@
 const allowedCors = [
-  "http://api.leontevsky.nomoredomains.work",
-  "https://api.leontevsky.nomoredomains.work",
+  "http://movies-leontevsky.nomoredomains.work",
+  "https://movies-leontevsky.nomoredomains.work",
   "http://localhost:3000",
   "https://localhost:3000",
 ];
