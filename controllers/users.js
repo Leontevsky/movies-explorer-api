@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
-const NotFoundError = require("..//not-found-error");
+const NotFoundError = require("../errors/not-found-error");
 const BadRequestError = require("../errors/bad-request-error");
 const ConflictError = require("../errors/conflict-error");
 
