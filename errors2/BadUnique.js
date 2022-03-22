@@ -1,8 +1,8 @@
-class BadUnique extends Error {
-  constructor(message) {
-    super(message);
-    this.statusCode = 409;
-  }
-}
+// class BadUnique extends Error {
+//   constructor(message) {
+//     super(message);
+//     this.statusCode = 409;
+//   }
+// }
 
-module.exports = BadUnique;
+// module.exports = BadUnique;
