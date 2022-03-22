@@ -1,7 +1,7 @@
 const Movie = require("../models/movie");
-const NotFoundError = require("../errors/NotFound");
-const BadRequestError = require("../errors/BadRequest");
-const ForbiddenError = require("../errors/Forbidden");
+const ForbiddenError = require("../errors2/forbidden-error");
+const NotFoundError = require("../errors2/not-found-error");
+const BadRequestError = require("../errors2/bad-request-error");
 
 const getMovies = (req, res, next) => {
   Movie.find({})
