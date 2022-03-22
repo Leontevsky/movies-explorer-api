@@ -10,7 +10,7 @@ const authRoute = require("./router/auth");
 
 const auth = require("./middlewares/auth");
 const errHandler = require("./middlewares/error-handler");
-const corsMiddleware = require("./middlewares/cors-defend");
+const corsMiddleware = require("./middlewares/corse-defend");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
 const NotFoundError = require("./errors/not-found-error");
