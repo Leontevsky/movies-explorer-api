@@ -1,8 +1,8 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
-const NotFoundError = require("../errors2/not-found-error");
-const BadRequestError = require("../errors2/bad-request-error");
-const ConflictError = require("../errors2/conflict-error");
+const NotFoundError = require("..//not-found-error");
+const BadRequestError = require("../errors/bad-request-error");
+const ConflictError = require("../errors/conflict-error");
 
 const optsForUpdateUser = {
   new: true,

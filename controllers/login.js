@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const UnauthorizedError = require("../errors2/unauthorized-error");
+const UnauthorizedError = require("../errors/unauthorized-error");
 
 const ERROR_CODE_UNAUTHORIZED = 401;
 
